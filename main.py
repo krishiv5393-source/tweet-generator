@@ -26,4 +26,4 @@ if st.button("Generate"):
     for i in range(number):
         response = tweet_chain.invoke({"topic": topic,
                                        "language": language,})
-        st.code(response.content)
+        st.code(response.content, language = None)
