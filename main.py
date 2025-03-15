@@ -13,6 +13,7 @@ tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['top
 topic = st.text_input("Topic: ")
 number = st.number_input("Number of Tweets: ", value = 1, step = 1, max_value = 10, min_value = 1)
 language = st.text_input("Language: ")
+add_vertical_space(num_lines: int = 1)
 
 if st.button("Generate"):
     tweet_chain = tweet_prompt | model
