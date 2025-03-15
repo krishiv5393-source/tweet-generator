@@ -19,6 +19,8 @@ Please follow the below instructions:
 """
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'topic', 'language'])
 
+st.set_page_config("wide")
+
 with st.form(key = 'tweets'):
     topic = st.text_input("Topic: ")
     number = st.number_input("Number of Tweets: ", value = 1, step = 1, max_value = 10, min_value = 1)
