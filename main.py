@@ -19,7 +19,7 @@ Please follow the below instructions:
 """
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'topic', 'language'])
 
-st.set_page_config("wide")
+st.set_page_config(layout = "wide")
 
 with st.form(key = 'tweets'):
     topic = st.text_input("Topic: ")
