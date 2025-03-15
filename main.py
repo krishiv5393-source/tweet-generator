@@ -11,7 +11,7 @@ tweet_template = """
 Give me a tweet on {topic} in {language}.
 Please follow the below instructions:
 1. Make sure the tweets are not offensive.
-2. Keep them concise.
+2. The maximum word limit is 15 words.
 """
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['topic', 'language'])
 
