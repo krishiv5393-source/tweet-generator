@@ -12,7 +12,7 @@ Give me a tweet on {topic} in {language}.
 Please follow the below instructions:
 1. Do not translate to English if the given language is not English.
 2. The maximum word limit is 15 words.
-3. If {lang} is not a real language, default to English and ignore the language input.
+3. If {lang} is not a real language, default to English and ignore {lang}.
 """
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['topic', 'language', 'lang'])
 
