@@ -7,13 +7,17 @@ st.title('Tweet Generator')
 
 os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 model = Google(model = "gemini-1.5-flash-latest")
-tweet_template = "Give me a tweet on {topic} in {language}."
+tweet_template = """
+Give me a tweet on {topic} in {language}.
+Please follow the below instructions:
+1. Make sure the tweets are not offensive.
+2. Keep them concise.
+"""
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['topic', 'language'])
 
 topic = st.text_input("Topic: ")
 number = st.number_input("Number of Tweets: ", value = 1, step = 1, max_value = 10, min_value = 1)
 language = st.text_input("Language: ")
-add_vertical_space(num_lines: int = 1)
 
 if st.button("Generate"):
     tweet_chain = tweet_prompt | model
