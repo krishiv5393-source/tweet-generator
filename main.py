@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI as Google
 import os
 from langchain import PromptTemplate, LLMChain
 
-st.title("Tweet Generator")
+# st.title("Tweet Generator")
 
 os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 model = Google(model = "gemini-1.5-flash-latest")
