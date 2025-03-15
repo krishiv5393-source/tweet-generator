@@ -3,7 +3,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI as Google
 import os
 from langchain import PromptTemplate, LLMChain
 
-# st.title("Tweet Generator")
+st.set_page_config(page_title='Tweet Generator', page_icon='😎', layout="wide", initial_sidebar_state="auto", menu_items=None)
+st.title("Tweet Generator")
 
 os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 model = Google(model = "gemini-1.5-flash-latest")
@@ -18,8 +19,6 @@ Please follow the below instructions:
 5. Keep the tweets short, but include at least 1 hashtag per tweet.
 """
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'topic', 'language'])
-
-st.set_page_config(page_title='Tweet Generator', page_icon='😎', layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 with st.form(key = 'tweets'):
     topic = st.text_input("Topic: ")
