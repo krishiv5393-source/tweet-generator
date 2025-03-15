@@ -15,7 +15,7 @@ topic = st.text_input("Topic: ")
 number = st.number_input("Number of Tweets: ", value = 1, step = 1, max_value = 10, min_value = 1)
 language = st.text_input("Language: ")
 
-if st.form_submit_button("Generate"):
+if st.button("Generate"):
     tweet_chain = tweet_prompt | model
     for i in number:
         response = tweet_chain.invoke({"topic": topic,
