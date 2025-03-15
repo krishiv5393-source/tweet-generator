@@ -4,7 +4,6 @@ import os
 from langchain import PromptTemplate, LLMChain
 
 st.title('Tweet Generator')
-st.header('Tweet Generator')
 
 os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 model = Google(model = "gemini-1.5-flash-latest")
