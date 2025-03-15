@@ -17,7 +17,6 @@ Please follow the below instructions:
 3. If {topic} is empty or does not make sense, then respond with "Please enter a topic for your tweet!".
 4. Avoid unnecessary indents or spaces.
 5. Keep the tweets short, but include at least 1 hashtag per tweet.
-6. Put the hashtags in a separate line.
 """
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'topic', 'language'])
 
