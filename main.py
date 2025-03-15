@@ -1,4 +1,4 @@
-Aimport streamlit as st
+import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI as Google
 import os
 from langchain import PromptTemplate, LLMChain
@@ -12,10 +12,9 @@ tweet_template = """
 Give me {number} tweets on {topic} in {language}.
 Please follow the below instructions:
 1. Do not translate to English if the given language is not English.
-2. The maximum word limit is 15 words.
-3. If {language} is empty or not a real language, default to English and ignore {language}.
-4. If {topic} is empty or does not make sense, then respond with "Please enter a topic for your tweet!".
-5. Avoid unnecessary indents or spaces.
+2. If {language} is empty or not a real language, default to English and ignore {language}.
+3. If {topic} is empty or does not make sense, then respond with "Please enter a topic for your tweet!".
+4. Avoid unnecessary indents or spaces.
 """
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'topic', 'language'])
 
