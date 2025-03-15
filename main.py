@@ -6,7 +6,7 @@ from langchain import PromptTemplate, LLMChain
 st.title('Tweet Generator')
 st.header('Tweet Generator')
 
-st.secrets['GOOGLE_API_KEY']] = "AIzaSyAijEMD2PE6SUUjHhFy1EsAXnRsyUO8rEk"
+os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 model = Google(model = "gemini-1.5-flash-latest")
 tweet_template = "Give me a tweet on {topic} in {language}."
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['topic', 'language'])
