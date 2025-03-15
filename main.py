@@ -10,10 +10,11 @@ model = Google(model = "gemini-1.5-flash-latest")
 tweet_template = """
 Give me a tweet on {topic} in {language}.
 Please follow the below instructions:
-1. Make sure the tweets are not offensive.
+1. Do not translate to English if the given language is not English.
 2. The maximum word limit is 15 words.
+3. If {lang} is not a real language, default to English and ignore the language input.
 """
-tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['topic', 'language'])
+tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['topic', 'language', 'lang'])
 
 topic = st.text_input("Topic: ")
 number = st.number_input("Number of Tweets: ", value = 1, step = 1, max_value = 10, min_value = 1)
@@ -23,5 +24,6 @@ if st.button("Generate"):
     tweet_chain = tweet_prompt | model
     for i in range(number):
         response = tweet_chain.invoke({"topic": topic,
-                                       "language": language})
+                                       "language": language,
+                                       "lang": language})
         st.code(response.content)
