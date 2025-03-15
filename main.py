@@ -17,7 +17,7 @@ language = st.text_input("Language: ")
 
 if st.button("Generate"):
     tweet_chain = tweet_prompt | model
-    for i in number:
+    for i in range(number):
         response = tweet_chain.invoke({"topic": topic,
                                        "language": language})
         st.code(response.content)
