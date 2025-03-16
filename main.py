@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI as Google
 import os
 from langchain import PromptTemplate, LLMChain
 
-st.set_page_config(page_title='Tweet Generator', page_icon='😎', layout="wide", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(page_title='Tweet Generator', page_icon='https://icons8.com/icon/8824/twitter-bird', layout="wide", initial_sidebar_state="auto", menu_items=None)
 st.title("Tweet Generator")
 
 os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
