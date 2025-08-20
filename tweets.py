@@ -17,12 +17,14 @@ Please follow the below instructions:
 3. If {topic} is empty or does not make sense, then respond with "Please enter a topic for your tweet!".
 4. Avoid unnecessary indents or spaces.
 5. Keep the tweets short, but include at least 1 hashtag per tweet.
+6.If {topic} is inappropriate, show cannot load 
+7.If spellings are wrong do not load
 """
 tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'topic', 'language'])
 
 with st.form(key = 'tweets'):
     topic = st.text_input("Topic: ")
-    number = st.number_input("Number of Tweets: ", value = 1, step = 1, max_value = 10, min_value = 1)
+    number = st.number_input("Number of Tweets: ", value = 1, step = 1, max_value = 10000000, min_value = 1)
     language = st.text_input("Language: ")
     submit = st.form_submit_button("Generate")
 
